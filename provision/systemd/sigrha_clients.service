@@ -1,0 +1,14 @@
+[Service]
+WorkingDirectory=/home/sigrha/clients/API_Clients/bin/Release/netcoreapp3.1/
+ExecStart=/usr/share/dotnet/dotnet /home/sigrha/clients/API_Clients/bin/Release/netcoreapp3.1/API_Clients.dll
+Restart=always
+# RestartService after 10secs if dotnet service crashes
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=Sigrha_client_service
+user=clients
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target
